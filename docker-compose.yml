@@ -1,0 +1,66 @@
+version: '3'
+services:
+  postgres:
+    image: postgres:12.3
+    container_name: postgres
+    volumes:
+      - ./data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=movie
+      - POSTGRES_PASSWORD=movie
+    restart: always
+    networks:
+      postgres:
+  web:
+    image: golang:1.14-alpine
+    command: go run main.go
+    ports:
+      - 8080:8080
+    working_dir: /root/web/
+    volumes:
+      - .:/root
+    networks:
+      movies:
+    depends_on:
+      - movie
+  movie:
+    image: golang:1.14-alpine
+    command: go run movie/main.go
+      - 8081:8081
+    working_dir: /root/
+    environment:
+      MOVIE_DB_CONN_STR: "user=movie password=movie dbname=movie sslmode=disable host=postgres port=5432"
+    volumes:
+      - .:/root
+    networks:
+      movies:
+      postgres:
+    depends_on:
+      - postgres
+  user:
+    image: golang:1.14-alpine
+    command: go run user/main.go
+    ports:
+      - 8082:8082
+    working_dir: /root/
+    volumes:
+      - .:/root
+    networks:
+      movies:
+  payment:
+    image: golang:1.14-alpine
+    command: go run main.go
+    ports:
+      - 8083:8083
+    working_dir: /root/payment
+    volumes:
+      - .:/root
+    networks:
+      movies:
+networks:
+  movies:
+    external: false
+  postgres:
+    external: false

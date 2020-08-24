@@ -1,0 +1,42 @@
+.page {
+    padding-bottom: 40px;
+}
+
+.horizontal-top-menu {
+    background: rgb(61, 79, 93);
+    color: #fff;
+}
+
+.pure-menu-link {
+    color: #fff;
+}
+
+.pure-menu-link:hover {
+    color: rgb(61, 79, 93);
+}
+
+.main {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.movie-description {
+    width: 50%;
+}
+
+.footer {
+    background: rgb(61, 79, 93);
+    color: #fff;
+    height : 40px ;
+    text-align : center ;
+    width : 100% ;
+    position: fixed;
+    bottom: 0px;
+}

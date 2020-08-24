@@ -1,0 +1,24 @@
+openapi: 3.0.1
+info:
+  title: Shop
+  version: 1.0.0
+paths:
+  /movies:
+    get:
+      summary: 
+      operationId: 
+      requestBody:
+        description: 
+        content:
+          application/json:
+            schema:
+              $ref: 
+        required: true
+      responses:
+        301:
+          description:
+        405:
+          description: Incorrect input
+components:
+  schemas:
+    Movie:

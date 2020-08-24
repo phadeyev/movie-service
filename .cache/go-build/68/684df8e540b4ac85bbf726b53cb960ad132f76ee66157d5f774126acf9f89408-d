@@ -1,0 +1,7 @@
+./darwin.go
+./dialect.go
+./driver.go
+./mysql_dialect.go
+./postgres_dialect.go
+./ql_dialect.go
+./sqlite_dialect.go

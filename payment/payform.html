@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Оплата подписки в онлайн-кинотеатре</title>
+	<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css">
+</head>
+<body style="padding: 1em;">
+	<div style="max-width: 500px;">
+		<form class="pure-form pure-form-stacked" method="POST">
+			<fieldset>
+				<legend>Оплата подписки в онлайн-кинотеатре</legend>
+				<input type="hidden" name="uid" value="{{.Uid}}">
+				<div class="pure-g">
+					<div class="pure-u-1-1">
+						<label>Номер карты
+							<input class="pure-u-1-1" type="text" maxlength="16" name="pan">
+						</label>
+					</div>
+
+					<div class="pure-u-1-2">
+						<label>Дата
+							<input placeholder="ММ/ГГ" type="text" class="pure-u-23-24" name="date">
+						</label>
+					</div>
+
+					<div class="pure-u-1-2">
+						<label>CVC
+							<input placeholder="CVC" type="text" class="pure-u-1-1" name="cvc">
+						</label>
+					</div>
+
+				</div>
+
+				<button type="submit" class="pure-button pure-button-primary">
+					Оплатить 100 р.
+				</button>
+			</fieldset>
+		</form>
+	<div>
+</body>
+</html>
